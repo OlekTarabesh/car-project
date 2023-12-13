@@ -5,14 +5,14 @@ import Image from "next/image";
 import CustomButton from "./CustomButton";
 import CarDetails from "./CarDetails";
 
-import { calculateCarRent } from "@/utils";
-import { CarCardProps } from "@/types";
+import { calculateCarRent, generateCarImageUrl } from "@/utils";
+import { CarProps } from "@/types";
 
-interface CarProps {
-  car: CarCardProps;
+interface CarCardProps {
+  car: CarProps;
 }
 
-const CarCard = ({ car }: CarProps) => {
+const CarCard = ({ car }: CarCardProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { city_mpg, year, make, model, transmission, drive } = car;
 
@@ -34,7 +34,7 @@ const CarCard = ({ car }: CarProps) => {
 
       <div className="relative w-full h-40 my-3 object-contain">
         <Image
-          src="/hero.png"
+          src={generateCarImageUrl(car)}
           alt="car model"
           fill
           priority

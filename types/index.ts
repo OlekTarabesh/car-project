@@ -15,7 +15,7 @@ export interface SearchManufacturerProps {
   setManufacturer: (manufacturer: string) => void;
 }
 
-export interface CarCardProps {
+export interface CarProps {
   city_mpg: number;
   class: string;
   combination_mpg: number;
@@ -33,5 +33,5 @@ export interface CarCardProps {
 export interface CarDetailsProps {
   isOpen: boolean;
   closeModal: () => void;
-  car: CarCardProps;
+  car: CarProps;
 }
